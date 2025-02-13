@@ -8,10 +8,23 @@ export default defineConfig({
     pluginModuleFederation({
       name: 'federation_consumer',
       remotes: {
-        federation_provider:
-          'federation_provider@http://localhost:3000/mf-manifest.json',
+        header_provider:
+          'header_provider@http://localhost:3000/mf-manifest.json',
+        footer_provider:
+          'footer_provider@http://localhost:3001/mf-manifest.json',
       },
-      shared: ['react', 'react-dom'],
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: '~18.2.0',
+          eager: true,
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: '~18.2.0',
+          eager: true,
+        },
+      },
     }),
   ],
   server: {

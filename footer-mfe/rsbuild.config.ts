@@ -6,9 +6,9 @@ export default defineConfig({
   plugins: [
     pluginReact(),
     pluginModuleFederation({
-      name: 'header_provider',
+      name: 'footer_provider',
       exposes: {
-        './header': './src/Header.tsx',
+        './footer': './src/Footer.tsx',
       },
       shared: {
         react: {
@@ -25,6 +25,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 3000,
+    port: 3001,
   },
 });
